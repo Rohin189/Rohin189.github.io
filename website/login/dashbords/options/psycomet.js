@@ -9,16 +9,13 @@ function startAssessment() {
     const gender = document.getElementById('student-gender').value;
     const caste = document.getElementById('student-caste').value;
 
-    // Basic validation
     if (!name || !age || !gender || !caste) {
         alert('Please fill in all student details.');
         return;
     }
 
-    // Store student details
     studentDetails = { name, age, gender, caste };
 
-    // Hide student details section and show the questionnaire
     document.getElementById('student-details').style.display = 'none';
     document.getElementById('questionnaire').style.display = 'block';
     document.getElementById('submit-btn').style.display = 'block';
@@ -27,9 +24,8 @@ function startAssessment() {
     responses = new Array(questions.length).fill(null);
 }
 
-// Questions with added depth and variety
+// Questions with categories
 const questions = [
-    // Academic Motivation
     {
         category: "academic_motivation",
         question: "How passionate are you about your current course of study?",
@@ -215,15 +211,15 @@ function calculateRisk() {
     });
 
     const maxPossibleScore = questions.length * 4;
-    const riskPercentage = (totalScore / maxPossibleScore) * 100;
+    const riskPercentage = (totalScore / maxPossibleScore) * 50; // Out of 50 percentage scale
 
     let riskLevel = "Low Risk";
-    if (riskPercentage > 66) riskLevel = "High Risk";
-    else if (riskPercentage > 33) riskLevel = "Medium Risk";
+    if (riskPercentage > 33) riskLevel = "Medium Risk";
+    if (riskPercentage > 41) riskLevel = "High Risk";
 
     const chartData = Object.entries(categoryScores).map(([category, score]) => ({
         category: category.replace('_', ' '),
-        score: (score * 100).toFixed(2)
+        score: ((score / 4) * 50).toFixed(2) // Convert category score to percentage out of 50
     }));
 
     const assessmentResults = {
@@ -235,10 +231,10 @@ function calculateRisk() {
     };
 
     renderResults(assessmentResults);
-    saveToCSV(assessmentResults);
+    downloadCSV(assessmentResults);
 }
 
-// Render results and the chart
+// Render results
 function renderResults(results) {
     const resultsSection = document.getElementById('results');
     resultsSection.style.display = 'block';
@@ -257,7 +253,7 @@ function renderResults(results) {
     renderChart(results.categoryScores);
 }
 
-// Render the chart using Chart.js
+// Render chart using Chart.js
 function renderChart(chartData) {
     const ctx = document.getElementById('chart').getContext('2d');
     new Chart(ctx, {
@@ -273,28 +269,38 @@ function renderChart(chartData) {
         options: {
             responsive: true,
             scales: {
-                y: { beginAtZero: true, max: 100 }
+                y: { beginAtZero: true, max: 50 }
             }
         }
     });
 }
 
-// Save results to a CSV file
-function saveToCSV(data) {
-    const categoryScoresString = data.categoryScores
-        .map(category => `${category.category}: ${category.score}%`)
-        .join('; ');
+// Download results as CSV file
+function downloadCSV(results) {
+    const headers = ["Name", "Age", "Gender", "Caste", "Total Score", "Risk Percentage", "Risk Level"];
+    const categoryHeaders = results.categoryScores.map(cat => `${cat.category} (%)`);
+    const csvData = [
+        [...headers, ...categoryHeaders].join(','),
+        [
+            results.name,
+            results.age,
+            results.gender,
+            results.caste,
+            results.totalScore,
+            results.riskPercentage,
+            results.riskLevel,
+            ...results.categoryScores.map(cat => cat.score)
+        ].join(',')
+    ];
 
-    const csvContent = `
-        Name,Age,Gender,Caste,Total Score,Risk Percentage,Risk Level,Category Scores
-        ${data.name},${data.age},${data.gender},${data.caste},${data.totalScore},${data.riskPercentage}%,${data.riskLevel},"${categoryScoresString}"
-    `;
-
-    const blob = new Blob([csvContent.trim()], { type: 'text/csv;charset=utf-8;' });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = `student_risk_assessment_${data.name}.csv`;
+    const csvContent = "data:text/csv;charset=utf-8," + csvData.join('\n');
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement('a');
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', `${results.name}_Risk_Assessment.csv`);
+    document.body.appendChild(link); // Required for Firefox
     link.click();
+    document.body.removeChild(link);
 }
 
 // Add event listener to the submit button
