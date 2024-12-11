@@ -26,6 +26,7 @@ function startAssessment() {
 
 // Questions with categories
 const questions = [
+    // Academic Motivation
     {
         category: "academic_motivation",
         question: "How passionate are you about your current course of study?",
@@ -207,19 +208,19 @@ function calculateRisk() {
 
     Object.keys(categoryScores).forEach(category => {
         const categoryQuestionCount = questions.filter(q => q.category === category).length;
-        categoryScores[category] /= categoryQuestionCount;
+        categoryScores[category] = (categoryScores[category] / categoryQuestionCount) * 25; // Scale between 0 and 25
     });
 
     const maxPossibleScore = questions.length * 4;
-    const riskPercentage = (totalScore / maxPossibleScore) * 50; // Out of 50 percentage scale
+    const riskPercentage = (totalScore / maxPossibleScore) * 100;
 
     let riskLevel = "Low Risk";
-    if (riskPercentage > 33) riskLevel = "Medium Risk";
-    if (riskPercentage > 41) riskLevel = "High Risk";
+    if (riskPercentage > 66) riskLevel = "High Risk";
+    else if (riskPercentage > 33) riskLevel = "Medium Risk";
 
     const chartData = Object.entries(categoryScores).map(([category, score]) => ({
         category: category.replace('_', ' '),
-        score: ((score / 4) * 50).toFixed(2) // Convert category score to percentage out of 50
+        score: score.toFixed(2)
     }));
 
     const assessmentResults = {
@@ -231,7 +232,7 @@ function calculateRisk() {
     };
 
     renderResults(assessmentResults);
-    downloadCSV(assessmentResults);
+    downloadCSV(assessmentResults); // Automatically download CSV after calculation
 }
 
 // Render results
@@ -269,39 +270,45 @@ function renderChart(chartData) {
         options: {
             responsive: true,
             scales: {
-                y: { beginAtZero: true, max: 50 }
+                y: {
+                    beginAtZero: true,
+                    max: 100, // Adjust the y-axis to scale up to 100
+                    ticks: {
+                        stepSize: 20
+                    }
+                }
             }
         }
     });
 }
 
-// Download results as CSV file
+// CSV download function (auto-triggered)
+// CSV download function (auto-triggered)
 function downloadCSV(results) {
-    const headers = ["Name", "Age", "Gender", "Caste", "Total Score", "Risk Percentage", "Risk Level"];
-    const categoryHeaders = results.categoryScores.map(cat => `${cat.category} (%)`);
-    const csvData = [
-        [...headers, ...categoryHeaders].join(','),
-        [
-            results.name,
-            results.age,
-            results.gender,
-            results.caste,
-            results.totalScore,
-            results.riskPercentage,
-            results.riskLevel,
-            ...results.categoryScores.map(cat => cat.score)
-        ].join(',')
-    ];
+    // Format the categoryScores array as a string
+    const categoryScoresString = results.categoryScores
+        .map(category => `${category.category}:${category.score}%`)
+        .join('; ');
 
-    const csvContent = "data:text/csv;charset=utf-8," + csvData.join('\n');
+    // Remove the 'categoryScores' field and replace it with the formatted string
+    delete results.categoryScores;
+
+    // Add the formatted categoryScores string to the results object
+    results.categoryScores = categoryScoresString;
+
+    // Create CSV content
+    const csvContent = 'data:text/csv;charset=utf-8,' +
+        Object.keys(results).map(key => `${key},${results[key]}`).join('\n');
+
+    // Create a link element to trigger the CSV download
     const encodedUri = encodeURI(csvContent);
     const link = document.createElement('a');
     link.setAttribute('href', encodedUri);
-    link.setAttribute('download', `${results.name}_Risk_Assessment.csv`);
-    document.body.appendChild(link); // Required for Firefox
-    link.click();
-    document.body.removeChild(link);
+    link.setAttribute('download', 'assessment_results.csv');
+    document.body.appendChild(link);
+    link.click(); // Auto-trigger the download
 }
+
 
 // Add event listener to the submit button
 document.getElementById('submit-btn').addEventListener('click', calculateRisk);
