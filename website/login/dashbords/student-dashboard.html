@@ -6,8 +6,6 @@
     <title>Student Dashboard</title>
     <link rel="stylesheet" href="dashboard-styles.css" />
     <style>
-      /* Dropdown Button Styling */
-/* Dropdown Button Styling */
 /* Dropdown Button Styling */
 .dropdown-btn {
   margin-top: 10px;
@@ -27,49 +25,73 @@
 
 /* Dropdown Menu Styling */
 .dropdown-menu {
-  display: none; /* Hidden by default */
-  position: absolute; /* Position below the button */
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 10px;
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 100%;
   background-color: white;
   border: 1px solid #ddd;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   z-index: 1000;
   width: max-content;
-  padding: 5px 0;
+  padding: 10px 0;
   border-radius: 4px;
 }
 
-.dropdown-menu button {
-  background-color: transparent;
+.dropdown.active .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  position: relative;
+  margin: 5px 0;
+}
+
+.subject-btn {
+  background: none;
   border: none;
-  color: black;
   text-align: left;
   padding: 10px 20px;
   width: 100%;
   cursor: pointer;
 }
 
-.dropdown-menu button:hover {
-  background-color: #f1f1f1;
+.subject-btn:hover {
+  background-color:  #0056b3;
+  color:white;
+  border-radius: 5px;
+  font-weight: bolder;
 }
 
-/* Parent Dropdown Styling */
-.dropdown {
-  position: relative;
-  display: inline-block;
+/* Sub-dropdown Menu */
+.sub-dropdown {
+  display: none;
+  margin-top: 5px;
+  padding-left: 20px;
+}
+
+.subject-btn.active + .sub-dropdown {
+  display: block;
+}
+
+.sub-dropdown button {
+  display: block;
   width: 100%;
+  padding: 5px 20px;
+  text-align: left;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
-/* Show Dropdown Menu on Hover */
+.sub-dropdown button:hover {
+  background-color:#FAF6E3;
+  color: #0056b3;
+  border-radius: 4px;
 
-.dropdown.active .dropdown-menu{
-  display: block;
+  font-weight: bolder;
 }
-.dropdown-menu.active .dropdown2{
-  display: block;
-}
+
 
     </style>
   </head>
@@ -92,7 +114,7 @@
             <img src="images/materials.png" alt="Materials" />
             <h3>Access Study Materials</h3>
           </a>
-          <a href="./test.html" class="option-card">
+          <a href="./teachas.html" class="option-card">
             <img src="images/assignment.png" alt="Assignments" />
             <h3>Submit Assignments</h3>
           </a>
@@ -102,28 +124,34 @@
             <div class="dropdown">
               <button class="dropdown-btn">Select Test</button>
               <div class="dropdown-menu">
-                <button>Math Test</button>
-                <div class="dropdown2">
-                  <button>Test1</button>
-                  <button>Test2</button>
-                  <button>Test3</button>
+                <div class="dropdown-item">
+                  <button class="subject-btn">Math Test</button>
+                  <div class="sub-dropdown">
+                    <button onclick="location.href='options/math-test1.html'">Test1</button>
+                    <button onclick="location.href='options/math-test2.html'">Test2</button>
+                    <button onclick="location.href='options/math-test3.html'">Test3</button>
+                  </div>
                 </div>
-                
-                <button>Science Test</button>
-                <div class="dropdown2">
-                  <button>Test1</button>
-                  <button>Test2</button>
-                  <button>Test3</button>
+                <div class="dropdown-item">
+                  <button class="subject-btn">Science Test</button>
+                  <div class="sub-dropdown">
+                    <button onclick="location.href='options/science-test1.html'">Test1</button>
+                    <button onclick="location.href='options/science-test2.html'">Test2</button>
+                    <button onclick="location.href='options/science-test3.html'">Test3</button>
+                  </div>
                 </div>
-                <button>English Test</button>
-                <div class="dropdown2">
-                  <button>Test1</button>
-                  <button>Test2</button>
-                  <button>Test3</button>
+                <div class="dropdown-item">
+                  <button class="subject-btn">English Test</button>
+                  <div class="sub-dropdown">
+                    <button onclick="location.href='options/english-test1.html'">Test1</button>
+                    <button onclick="location.href='options/english-test2.html'">Test2</button>
+                    <button onclick="location.href='options/english-test3.html'">Test3</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          
           
           <a href="options/psycomet.html" class="option-card">
             <img src="images/Test.png" alt="Psychometric Test" />
@@ -133,9 +161,19 @@
       </section>
     </main>
     <script>
-      document.querySelector('.dropdown-btn').addEventListener('click', function () {
+// Toggle the main dropdown menu
+document.querySelector('.dropdown-btn').addEventListener('click', function () {
   const dropdown = this.parentElement;
   dropdown.classList.toggle('active');
+});
+
+// Toggle sub-dropdowns under each subject
+document.querySelectorAll('.subject-btn').forEach((button) => {
+  button.addEventListener('click', function () {
+    const subDropdown = this.nextElementSibling;
+    subDropdown.style.display =
+      subDropdown.style.display === 'block' ? 'none' : 'block';
+  });
 });
 
     </script>
