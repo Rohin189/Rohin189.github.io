@@ -1,52 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Student Dashboard</title>
-  <link rel="stylesheet" href="dashboard-styles.css">
-</head>
-<body>
-  <header>
-    <h1>Student Dashboard</h1>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="dashboard-styles.css" />
+    <style>
+      /* Dropdown Button Styling */
+/* Dropdown Button Styling */
+/* Dropdown Button Styling */
+.dropdown-btn {
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+}
 
-  <main>
-    <section class="dashboard-options">
-      <h1 id="Hello">Welcome!</h1>
-      <p>Select an action to continue:</p>
-      <div class="options-container">
-        <a href="options/grades.html" class="option-card">
-          <img src="images/grades.png" alt="Grades">
-          <h3>View Grades</h3>
-        </a>
-        <a href="options/materials.html" class="option-card">
-          <img src="images/materials.png" alt="Materials">
-          <h3>Access Study Materials</h3>
-        </a>
-        <a href="options/assignments.html" class="option-card">
-          <img src="images/assignment.png" alt="Assignments">
-          <h3>Submit Assignments</h3>
-        </a>
-        <a href="options/test.html" class="option-card">
-          <img src="images/Test.png" alt="Test">
-          <h3>Test</h3>
-        </a>
-        <a href="options/psycomet.html" class="option-card">
-          <img src="images/Test.png" alt="Psychometric Test">
-          <h3>Psychometric Test</h3>
-        </a>
-      </div>
-    </section>
-  </main>
-  <script>
-    // Get the stored name from local storage
-    const name = localStorage.getItem("userName");
-    if (name) {
+.dropdown-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Dropdown Menu Styling */
+.dropdown-menu {
+  display: none; /* Hidden by default */
+  position: absolute; /* Position below the button */
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  width: max-content;
+  padding: 5px 0;
+  border-radius: 4px;
+}
+
+.dropdown-menu button {
+  background-color: transparent;
+  border: none;
+  color: black;
+  text-align: left;
+  padding: 10px 20px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.dropdown-menu button:hover {
+  background-color: #f1f1f1;
+}
+
+/* Parent Dropdown Styling */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Show Dropdown Menu on Hover */
+
+.dropdown.active .dropdown-menu{
+  display: block;
+}
+.dropdown-menu.active .dropdown2{
+  display: block;
+}
+
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h1>Student Dashboard</h1>
+    </header>
+
+    <main>
+      <section class="dashboard-options">
+        <h1 id="Hello">Welcome!</h1>
+        <p>Select an action to continue:</p>
+        <div class="options-container">
+          <a href="options/grades.html" class="option-card">
+            <img src="images/grades.png" alt="Grades" />
+            <h3>View Grades</h3>
+          </a>
+          <a href="options/materials.html" class="option-card">
+            <img src="images/materials.png" alt="Materials" />
+            <h3>Access Study Materials</h3>
+          </a>
+          <a href="./test.html" class="option-card">
+            <img src="images/assignment.png" alt="Assignments" />
+            <h3>Submit Assignments</h3>
+          </a>
+          <div class="option-card" id="d">
+            <img src="images/Test.png" alt="Test">
+            <h3>Test</h3>
+            <div class="dropdown">
+              <button class="dropdown-btn">Select Test</button>
+              <div class="dropdown-menu">
+                <button>Math Test</button>
+                <div class="dropdown2">
+                  <button>Test1</button>
+                  <button>Test2</button>
+                  <button>Test3</button>
+                </div>
+                
+                <button>Science Test</button>
+                <div class="dropdown2">
+                  <button>Test1</button>
+                  <button>Test2</button>
+                  <button>Test3</button>
+                </div>
+                <button>English Test</button>
+                <div class="dropdown2">
+                  <button>Test1</button>
+                  <button>Test2</button>
+                  <button>Test3</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <a href="options/psycomet.html" class="option-card">
+            <img src="images/Test.png" alt="Psychometric Test" />
+            <h3>Psychometric Test</h3>
+          </a>
+        </div>
+      </section>
+    </main>
+    <script>
+      document.querySelector('.dropdown-btn').addEventListener('click', function () {
+  const dropdown = this.parentElement;
+  dropdown.classList.toggle('active');
+});
+
+    </script>
+    <script>
+      // Get the stored name from local storage
+      const name = localStorage.getItem("userName");
+      if (name) {
         document.getElementById("Hello").textContent = `Hello, ${name}!`;
-    } else {
+      } else {
         document.getElementById("greeting").textContent = "Hello, Guest!";
-    }
-</script>
-</body>
+      }
+    </script>
+  </body>
 </html>
