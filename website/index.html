@@ -5,7 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Educare - Welcome</title>
     <link rel="stylesheet" href="css/styles.css" />
+
     <style>
+      .logo {
+        position: fixed;
+        border-radius: 100%;
+        /* Pin it to the corner */
+        top: 10px;
+        left: 10px; /* Distance from the right */
+        width: 50px; /* Adjust size */
+        cursor: pointer; /* Pointer cursor on hover */
+        transition: transform 0.3s ease; /* Smooth hover effect */
+      }
       /* Hero Section Styles */
       .hero-section {
         text-align: center;
@@ -14,9 +25,16 @@
         color: white;
         padding: 100px;
       }
+
       .educare {
         color: white;
         text-decoration: none;
+        position: absolute;
+        top: 15px;
+        left: 80px;
+        margin: 0;
+        font-size: 2rem;
+        font-weight: bold;
       }
 
       .educare:hover {
@@ -103,6 +121,102 @@
         margin-top: 10px;
         font-weight: bold;
       }
+      
+  /* Success Stories Section */
+  .success-stories {
+    padding: 2rem 1rem;
+    text-align: center;
+    background-color: #eaf6ff;
+  }
+  
+  .success-stories h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .story-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .story-card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    text-align: center;
+    border-radius: 10px;
+  }
+  
+  .story-card h4 {
+    font-size: 1.3rem;
+    color: #0056b3;
+  }
+  
+  .story-card p {
+    margin: 1rem 0;
+  }
+  
+  .story-card .btn-secondary {
+    padding: 0.6rem 1.2rem;
+    background-color: #0056b3;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .story-card .btn-secondary:hover {
+    background-color: #003d8a;
+  }
+/* Additional Stories Section */
+.additional-stories {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #f4f4f4;
+}
+
+.succ-img{
+  
+}
+
+.additional-stories h2 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+.story-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.story-image {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.story-text {
+  max-width: 600px;
+  text-align: left;
+}
+
+.story-text h3 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+.story-text p {
+  font-size: 1.2em;
+  color: #555;
+}
 
       /* Animations */
       @keyframes fadeIn {
@@ -117,6 +231,11 @@
   </head>
   <body>
     <header>
+      <img
+        class="logo"
+        src="./Black Illustrated School Logo[1].png"
+        alt="logohain"
+      />
       <h1><a href="index.html" class="educare">Educare</a></h1>
       <nav>
         <ul>
@@ -169,20 +288,68 @@
       <section class="testimonials">
         <h2>What People Say About Us</h2>
         <div class="testimonial">
-          "Educare has truly transformed my learning experience. I’ve gained
+          "Educare has truly transformed my learning experience. I've gained
           access to great study resources."
-          <span>- John Doe, Student</span>
+          <span>Luffy,Student</span>
         </div>
         <div class="testimonial">
           "The teacher training programs provided by Educare have helped me
           become a better educator."
-          <span>- Jane Smith, Teacher</span>
+          <span>Shere Habib, Teacher</span>
         </div>
       </section>
+
+      <!--SUCCESS STORIES-->
+      <section class="success-stories">
+        <h2>Success Stories</h2>
+        <p>Check out some of the amazing stories of students and communities who have benefited from our initiatives.</p>
+        <div class="story-cards">
+          <div class="story-card">
+            <img class="succ-img" src="./images/1.jpg">
+            <h4>Shradha Sharma</h4>
+            <p>Learn how we helped a student graduate from high school against all odds.</p>
+            <button onclick="window.location.href='story1.html'" class="btn-secondary">Read Story</button>
+          </div>
+          <div class="story-card">
+            <h4>Success Story 2</h4>
+            <p>How a community initiative is improving access to education for local children.</p>
+            <button onclick="window.location.href='story2.html'" class="btn-secondary">Read Story</button>
+          </div>
+          <div class="story-card">
+            <h4>Success Story 3</h4>
+            <p>A teacher's perspective on how partnerships have brought about change.</p>
+            <button onclick="window.location.href='story3.html'" class="btn-secondary">Read Story</button>
+          </div>
+        </div>
+      </section>
+    </section>
+    <section class="additional-stories">
+      <h2>Our Latest Impact</h2>
+      <div class="story-container">
+        <img src="images/piechart.jpg" alt="Impact Image" class="story-image">
+        <div class="story-text">
+          <h3></h3>
+          <p>According to a story in the Atlantic, college dropouts over the age of 25 are 71 percent more likely to be unemployed, and are 4 times more likely to default on their student loans. On average, they earn 32 percent less than their contemporaries with college degrees.</p>
+        </div>
+      </div>
+    </section>
     </main>
+
 
     <footer>
       <p>&copy; 2024 Educare. Empowering Education for All.</p>
     </footer>
+    <script>
+      window.embeddedChatbotConfig = {
+        chatbotId: "-XpUhr2g11zxjjJyGtkKW",
+        domain: "www.chatbase.co",
+      };
+    </script>
+    <script
+      src="https://www.chatbase.co/embed.min.js"
+      chatbotId="-XpUhr2g11zxjjJyGtkKW"
+      domain="www.chatbase.co"
+      defer
+    ></script>
   </body>
 </html>
