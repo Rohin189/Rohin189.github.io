@@ -122,55 +122,129 @@
         font-weight: bold;
       }
       
-  /* Success Stories Section */
-  .success-stories {
-    padding: 2rem 1rem;
-    text-align: center;
-    background-color: #eaf6ff;
-  }
-  
-  .success-stories h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-  }
-  
+ /* General Section Styles */
+section.success-stories {
+  padding: 40px;
+  background-color: #f9f9f9;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.success-stories h2 {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.success-stories p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+/* Story Cards Container */
+.story-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Individual Story Card */
+.story-card {
+  width: 300px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  text-align: left;
+}
+
+.story-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.story-card h4 {
+  font-size: 1.2rem;
+  margin: 15px;
+  color: #444;
+}
+
+.story-card .story-preview {
+  font-size: 0.9rem;
+  margin: 15px;
+  color: #666;
+}
+
+.story-card .story-full {
+  font-size: 0.9rem;
+  margin: 15px;
+  color: #444;
+  display: none; /* Initially hidden */
+}
+
+.story-card .story-full.visible {
+  display: block;
+}
+
+.story-card .btn-secondary {
+  display: block;
+  width: calc(100% - 30px);
+  margin: 15px;
+  padding: 10px;
+  font-size: 0.9rem;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.story-card .btn-secondary:hover {
+  background-color: #0056b3;
+}
+
+/* Expanded Story Card */
+.story-card.expanded {
+  width: 100%;
+  max-width: 600px;
+  border: 2px solid #007bff;
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.story-card.expanded img {
+  height: 250px;
+  object-fit: cover;
+}
+
+.story-card.expanded .story-preview {
+  display: none; /* Hide preview when expanded */
+}
+
+.story-card.expanded .story-full {
+  display: block; /* Show full story when expanded */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
   .story-cards {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
+    flex-direction: column;
+    gap: 30px;
   }
-  
+
   .story-card {
-    background-color: #ffffff;
-    padding: 1.5rem;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    width: 250px;
-    text-align: center;
-    border-radius: 10px;
+    width: 100%;
   }
-  
-  .story-card h4 {
-    font-size: 1.3rem;
-    color: #0056b3;
-  }
-  
-  .story-card p {
-    margin: 1rem 0;
-  }
-  
-  .story-card .btn-secondary {
-    padding: 0.6rem 1.2rem;
-    background-color: #0056b3;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .story-card .btn-secondary:hover {
-    background-color: #003d8a;
-  }
+}
+
 /* Additional Stories Section */
 .additional-stories {
   padding: 50px 20px;
@@ -284,7 +358,51 @@
           <p>Access training programs and resources for educators.</p>
         </div>
       </section>
-
+      <section class="success-stories">
+        <h2>Success Stories</h2>
+        <p>Check out some of the amazing stories of students and communities who have benefited from our initiatives.</p>
+        <div class="story-cards">
+          <div class="story-card" id="story1">
+            <h4>Shraddha Sharma</h4>
+            <img src="images/2.jpg" alt="Shraddha Sharma's Story">
+            <p class="story-preview">Shraddha was born in Patna, Bihar...</p>
+            <p class="story-full hidden">
+              Shradha's early life in Patna was marked by both limitations and dreams. Despite coming from a lower-middle-class family, her parents emphasised the importance of education and ambition. In 1997, she moved to New Delhi to pursue her higher education at St. Stephen’s College, where she majored in History. Later, she went on to complete her Master’s in the same subject. However, her academic pursuits didn’t stop there. Shradha also studied design management and digital creative management (DCM) at the prestigious MICA in Ahmedabad.
+            </p>
+            <button class="btn-secondary" onclick="toggleStory('story1')">Read Story</button>
+          </div>
+          <div class="story-card" id="story2">
+            <h4>Kiran Mazumdar</h4>
+            <img src="images/1.jpg" alt="Kiran Mazumdar's Story">
+            <p class="story-preview">Kiran Mazumdar was born on 23 March 1953...</p>
+            <p class="story-full hidden">
+              She was educated at Bangalore's Bishop Cotton Girl's High School, graduating in 1968. She then attended Mount Carmel College, Bangalore, a women's college offering pre-university courses as an affiliate of Bangalore University. Her determination and innovative ideas later led her to become a pioneer in biotechnology.
+            </p>
+            <button class="btn-secondary" onclick="toggleStory('story2')">Read Story</button>
+          </div>
+          <div class="story-card" id="story3">
+            <h4>Ghazal Alagh</h4>
+            <img src="images/3.jpg" alt="Ghazal Alagh's Story">
+            <p class="story-preview">Ghazal Alagh has always been passionate...</p>
+            <p class="story-full hidden">
+              Her entrepreneurial journey is inspiring. She co-founded MamaEarth, a successful brand focused on creating safe and sustainable products for families. Her focus on innovation and sustainability has made her a notable figure in the business world.
+            </p>
+            <button class="btn-secondary" onclick="toggleStory('story3')">Read Story</button>
+          </div>
+        </div>
+      </section>
+      
+    <section class="additional-stories">
+      <h2>Not all Dropouts are successful,there are drawbacks also</h2>
+      <div class="story-container">
+        <img src="images/piechart.jpg" alt="Impact Image" class="story-image">
+        <div class="story-text">
+          <h3></h3>
+          <p>According to a story in the Atlantic, college dropouts over the age of 25 are 71 percent more likely to be unemployed, and are 4 times more likely to default on their student loans. On average, they earn 32 percent less than their contemporaries with college degrees.</p>
+        </div>
+      </div>
+    </section>
+  
       <!-- Testimonials Section -->
       <section class="testimonials">
         <h2>What People Say About Us</h2>
@@ -300,40 +418,6 @@
         </div>
       </section>
 
-      <!--SUCCESS STORIES-->
-      <section class="success-stories">
-        <h2>Success Stories</h2>
-        <p>Check out some of the amazing stories of students and communities who have benefited from our initiatives.</p>
-        <div class="story-cards">
-          <div class="story-card">
-            <img class="succ-img" src="./images/1.jpg">
-            <h4>Shradha Sharma</h4>
-            <p>Learn how we helped a student graduate from high school against all odds.</p>
-            <button onclick="window.location.href='story1.html'" class="btn-secondary">Read Story</button>
-          </div>
-          <div class="story-card">
-            <h4>Success Story 2</h4>
-            <p>Ho w a community initiative is improving access to education for local children.</p>
-            <button onclick="window.location.href='story2.html'" class="btn-secondary">Read Story</button>
-          </div>
-          <div class="story-card">
-            <h4>Success Story 3</h4>
-            <p>A teacher's perspective on how partnerships have brought about change.</p>
-            <button onclick="window.location.href='story3.html'" class="btn-secondary">Read Story</button>
-          </div>
-        </div>
-      </section>
-    </section>
-    <section class="additional-stories">
-      <h2>Our Latest Impact</h2>
-      <div class="story-container">
-        <img src="images/piechart.jpg" alt="Impact Image" class="story-image">
-        <div class="story-text">
-          <h3></h3>
-          <p>According to a story in the Atlantic, college dropouts over the age of 25 are 71 percent more likely to be unemployed, and are 4 times more likely to default on their student loans. On average, they earn 32 percent less than their contemporaries with college degrees.</p>
-        </div>
-      </div>
-    </section>
     </main>
 
 
@@ -341,6 +425,28 @@
       <p>&copy; 2024 Educare. Empowering Education for All.</p>
     </footer>
     <script>
+      function toggleStory(storyId) {
+  const card = document.getElementById(storyId);
+  const preview = card.querySelector(".story-preview");
+  const fullStory = card.querySelector(".story-full");
+  const button = card.querySelector("button");
+
+  // Toggle visibility of the story
+  if (fullStory.classList.contains("hidden")) {
+    fullStory.classList.remove("hidden");
+    fullStory.classList.add("visible");
+    card.classList.add("expanded");
+    preview.style.display = "none";
+    button.innerText = "Close Story";
+  } else {
+    fullStory.classList.remove("visible");
+    fullStory.classList.add("hidden");
+    card.classList.remove("expanded");
+    preview.style.display = "block";
+    button.innerText = "Read Story";
+  }
+}
+
       window.embeddedChatbotConfig = {
         chatbotId: "-XpUhr2g11zxjjJyGtkKW",
         domain: "www.chatbase.co",
