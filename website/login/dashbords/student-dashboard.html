@@ -13,7 +13,7 @@
 
   <main>
     <section class="dashboard-options">
-      <h2>Welcome, Rajesh</h2>
+      <h1 id="Hello">Welcome!</h1>
       <p>Select an action to continue:</p>
       <div class="options-container">
         <a href="options/grades.html" class="option-card">
@@ -39,5 +39,14 @@
       </div>
     </section>
   </main>
+  <script>
+    // Get the stored name from local storage
+    const name = localStorage.getItem("userName");
+    if (name) {
+        document.getElementById("Hello").textContent = `Hello, ${name}!`;
+    } else {
+        document.getElementById("greeting").textContent = "Hello, Guest!";
+    }
+</script>
 </body>
 </html>
