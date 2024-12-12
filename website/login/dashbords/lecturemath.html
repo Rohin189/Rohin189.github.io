@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="dashboard-styles.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <title>Teacher Dashboard</title>
+  <title>Student Dashboard</title>
   <style>
     body {
       font-family: 'Arial', sans-serif;
@@ -22,7 +22,7 @@
       text-align: center;
     }
 
-    .mat {
+    .section-title {
       text-align: center;
       font-size: 2rem;
       margin: 30px 0;
@@ -92,7 +92,8 @@
       padding: 10px 0;
       margin-top: 50px;
     }
-    span{
+
+    span {
       font-weight: bolder;
       font-style: oblique;
     }
@@ -103,35 +104,37 @@
     <h1>Student Dashboard</h1>
   </header>
 
+
+  <!-- Mathematics Section -->
   <div>
-    <h1 class="mat">Mathematics</h1>
+    <h1 class="section-title">Mathematics</h1>
   </div>
 
   <div class="cards">
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Lecture 1</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Integral Calculus</h6>
-        <p class="card-text"><span>Integral Calculus</span> is the branch of calculus where we study integrals and their properties.</p>
-        <button onclick="alert('Lecture 1 is playing..')">Play</button>
+        <h6 class="card-subtitle mb-2 text-muted">Calculus Basics</h6>
+        <p class="card-text">Understand <span>the basics of calculus and its applications</span> in this lecture.</p>
+        <button onclick="window.open('https://youtu.be/p2b2Vb-cYCs?si=kp7wgkwOcFy_t-z9', '_blank')">Play</button>
       </div>
     </div>
 
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Lecture 2</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Differentiation</h6>
-        <p class="card-text"><span>Differential calculus</span> is a branch of mathematics that studies how quantities change at a rate</p>
-        <button onclick="alert('Lecture 2 is playing..')">Play</button>
+        <h6 class="card-subtitle mb-2 text-muted">Linear Algebra</h6>
+        <p class="card-text">Dive into <span>linear algebra concepts and matrices</span> in this lecture.</p>
+        <button onclick="window.open('https://youtu.be/7gigNsz4Oe8?si=t6JjIvLdU8JuKs_e', '_blank')">Play</button>
       </div>
     </div>
 
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Lecture 3</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Discrete Mathematics</h6>
-        <p class="card-text"><span>Discrete Mathematics</span> is the study of mathematical structures that are countable or distinct, and can be finite or infinite</p>
-        <button onclick="alert('Lecture 3 is playing..')">Play</button>
+        <h6 class="card-subtitle mb-2 text-muted">Probability and Statistics</h6>
+        <p class="card-text">Learn about <span>probability, distributions, and statistical analysis</span>.</p>
+        <button onclick="window.open('https://youtu.be/HfACrKJ_Y2w?si=iUHucZENbV2CyKus', '_blank')">Play</button>
       </div>
     </div>
   </div>
