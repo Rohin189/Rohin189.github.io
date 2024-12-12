@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <link rel="stylesheet" href="teach-dash.css" />
   <title>Upload Quiz</title>
   <style>
     /* General Styles */
@@ -99,7 +99,10 @@
       <textarea id="description" name="description" rows="4" placeholder="Brief description of the assignment"></textarea>
 
       <label for="fileUpload">Upload File:</label>
-      <input type="file" id="fileUpload" name="fileUpload" accept=".pdf,.doc,.docx,.txt" required>
+      <input type="file" id="fileUpload" name="fileUpload" accept=".pdf,.doc,.docx,.txt">
+
+      <label for="linkUpload">Link:</label>
+      <input type="url" id="linkUpload" name="linkUpload" placeholder="https://example.com">
 
       <button type="submit">Upload Quiz</button>
     </form>
@@ -112,8 +115,21 @@
 
     form.addEventListener('submit', function (event) {
       event.preventDefault(); // Prevent actual form submission
-      successMessage.style.display = 'block'; // Show success message
-      form.reset(); // Reset the form fields
+      
+      const fileInput = document.getElementById('fileUpload');
+      const linkInput = document.getElementById('linkUpload');
+
+      // Check if at least one option is filled (file or link)
+      if (!fileInput.files.length && !linkInput.value.trim()) {
+        alert('Please upload a file or provide a link.');
+        return;
+      }
+
+      // Show success message
+      successMessage.style.display = 'block';
+
+      // Optionally reset the form
+      form.reset();
     });
   </script>
 </body>
