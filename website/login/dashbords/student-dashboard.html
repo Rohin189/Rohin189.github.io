@@ -6,6 +6,9 @@
     <title>Student Dashboard</title>
     <link rel="stylesheet" href="dashboard-styles.css">
     <style>
+      body{
+        background: linear-gradient(to right, #00C9FF, #92FE9D);
+      }
 /* Dropdown Button Styling */
 .dropdown-btn {
   margin-top: 10px;
@@ -124,6 +127,7 @@
   </head>
 
   <body>
+    
     <header>
       <h1>Student Dashboard</h1>
     </header>
@@ -176,28 +180,14 @@
               <button class="dropdown-btn">Select Materials</button>
               <div class="dropdown-menu">
                 <div class="dropdown-item">
-                  <button class="subject-btn">Physics Materials</button>
-                  <div class="sub-dropdown">
-                    <button onclick="location.href='options/physics-textbooks.html'">Textbooks</button>
-                    <button onclick="location.href='options/physics-notes.html'">Lecture Notes</button>
-                    <button onclick="location.href='options/physics-practice.html'">Practice Materials</button>
-                  </div>
+                  <button class="subject-btn" onclick="location.href='\lecture.html'" >Physics Materials</button>
                 </div>
                 <div class="dropdown-item">
-                  <button class="subject-btn">Chemistry Materials</button>
-                  <div class="sub-dropdown">
-                    <button onclick="location.href='options/chemistry-textbooks.html'">Textbooks</button>
-                    <button onclick="location.href='options/chemistry-notes.html'">Lecture Notes</button>
-                    <button onclick="location.href='options/chemistry-practice.html'">Practice Materials</button>
-                  </div>
+                  <button class="subject-btn" onclick="location.href='\lecture.html'">Chemistry Materials</button>
+                  
                 </div>
                 <div class="dropdown-item">
-                  <button class="subject-btn">Mathematics Materials</button>
-                  <div class="sub-dropdown">
-                    <button onclick="location.href='options/math-textbooks.html'">Textbooks</button>
-                    <button onclick="location.href='options/math-notes.html'">Lecture Notes</button>
-                    <button onclick="location.href='options/math-practice.html'">Practice Materials</button>
-                  </div>
+                  <button onclick="location.href='\lecture.html'" class="subject-btn">Mathematics Materials</button>
                 </div>
                 
                 
@@ -240,8 +230,10 @@
           </div>
 
           <div class="option-card">
-            <img src="images/test.svg" alt="Test" />
+            <img src="images/test.svg" alt="Test"/>
+
             <h3>Test</h3>
+
             <div class="dropdown">
               <button class="dropdown-btn">Select Test</button>
               <div class="dropdown-menu">
