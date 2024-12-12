@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student Dashboard</title>
-    <link rel="stylesheet" href="dashboard-styles.css">
+    <link rel="stylesheet" href="./dashboard-styles.css">
     <style>
       body{
         background: linear-gradient(to right, #00C9FF, #92FE9D);
@@ -190,7 +190,6 @@
                   <button onclick="location.href='\lecture.html'" class="subject-btn">Mathematics Materials</button>
                 </div>
                 
-                
               </div>
             </div>
           </div>
@@ -202,12 +201,8 @@
               <button class="dropdown-btn">Select Assignments</button>
               <div class="dropdown-menu">
                 <div class="dropdown-item">
-                  <button class="subject-btn">Physics Assignments</button>
-                  <div class="sub-dropdown">
-                    <button onclick="location.href='options/physics-assignment1.html'">Assignment 1</button>
-                    <button onclick="location.href='options/physics-assignment2.html'">Assignment 2</button>
-                    <button onclick="location.href='options/physics-assignment3.html'">Assignment 3</button>
-                  </div>
+                  <button class="subject-btn" onclick="location.href='website\login\dashbords\assignment.html'">Physics Assignments</button>
+                  
                 </div>
                 <div class="dropdown-item">
                   <button class="subject-btn">Chemistry Assignments</button>
@@ -239,27 +234,13 @@
               <div class="dropdown-menu">
                 <div class="dropdown-item">
                   <button class="subject-btn">Physics Test</button>
-                  <div class="sub-dropdown">
-                    <button onclick="location.href='options/physics-test1.html'">Test 1</button>
-                    <button onclick="location.href='options/physics-test2.html'">Test 2</button>
-                    <button onclick="location.href='options/physics-test3.html'">Test 3</button>
-                  </div>
                 </div>
                 <div class="dropdown-item">
                   <button class="subject-btn">Chemistry Test</button>
-                  <div class="sub-dropdown">
-                    <button onclick="location.href='options/chemistry-test1.html'">Test 1</button>
-                    <button onclick="location.href='options/chemistry-test2.html'">Test 2</button>
-                    <button onclick="location.href='options/chemistry-test3.html'">Test 3</button>
-                  </div>
                 </div>
                 <div class="dropdown-item">
                   <button class="subject-btn">Mathematics Test</button>
-                  <div class="sub-dropdown">
-                    <button onclick="location.href='options/math-test1.html'">Test 1</button>
-                    <button onclick="location.href='options/math-test2.html'">Test 2</button>
-                    <button onclick="location.href='options/math-test3.html'">Test 3</button>
-                  </div>
+                  
                 </div>
               </div>
             </div>
@@ -274,6 +255,8 @@
     </main>
 
     <script>
+
+  
 // Toggle the main dropdown menus
 document.querySelectorAll('.dropdown-btn').forEach((button) => {
   button.addEventListener('click', function () {
