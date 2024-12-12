@@ -4,10 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="dashboard-styles.css">
+  <link rel="stylesheet" href="teach-dash.css" />
   <title>Document</title>
   <style>
-    .options-container{
+    .reports{
+      font-size:2.5rem ;
+      text-align: center;
       margin-top: 100px;
+    }
+    
+    .options-container{
+      margin-top: 40px;
       gap: 100px;
     }
     .option-card{
@@ -15,7 +22,7 @@
       gap: 25px;
       height: 200px;
       width: 300px; /* Increased size */
-      padding: 25px;
+      padding: 3.5rem;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .option-card:hover{
@@ -32,9 +39,13 @@
   <header>
     <h1>Teacher Dashboard</h1>
   </header>
-
+<h1 class="reports">Student Reports</h1>
   <div class="options-container">
+<<<<<<< HEAD
     <a href="Quiz-report.html" class="option-card">
+=======
+    <a href="./quiz-progress.html" class="option-card">
+>>>>>>> e941b115d814efa1e9e59d03c5d0803feffb4cbc
       <img src="images/attendance.png" alt="Attendance">
       <h3>Quizzes</h3>
     </a>
@@ -46,10 +57,15 @@
       <img src="images/attendance.png" alt="Attendance">
       <h3>Assignment Reports</h3>
     </a>
+    <a href="./psychometric-test.html" class="option-card">
+      <img src="images/attendance.png" alt="Attendance">
+      <h3>Psychometric Reports</h3>
+    </a>
   </div>
   
-  <footer>
-    <p>&copy; 2024 Educare. Empowering Teachers Everywhere.</p>
-  </footer>
+  
 </body>
+<footer>
+  <p>&copy; 2024 Educare. Empowering Teachers Everywhere.</p>
+</footer>
 </html>
