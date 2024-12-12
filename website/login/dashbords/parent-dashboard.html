@@ -136,14 +136,13 @@
           <img src="images/progress.png" alt="Progress">
           <h3>Check Progress</h3>
           <div class="dropdown">
-            <button class="dropdown-btn">Select Progress</button>
+            <button class="dropdown-btn">Select option</button>
             <div class="dropdown-menu">
               <div class="dropdown-item">
-                <button class="subject-btn">Quiz Progress</button>
+                <button class="subject-btn" onclick="location.href='\quiz-progress.html'">Quiz Progress</button>
               </div>
               <div class="dropdown-item">
-                <button class="subject-btn">Psychometric Test</button>
-                
+                <button class="subject-btn" onclick="location.href='psychometric-test.html'">Psychometric Test</button>
               </div>
             </div>
           </div>
@@ -157,11 +156,10 @@
             <button class="dropdown-btn">Select option</button>
             <div class="dropdown-menu">
               <div class="dropdown-item">
-                <button class="subject-btn">Teacher Details</button>
+                <button class="subject-btn" onclick="location.href='teacher-details.html'">Teacher Details</button>
               </div>
               <div class="dropdown-item">
-                <button class="subject-btn">Teacher Remark</button>
-                
+                <button class="subject-btn" onclick="location.href='teacher-remark.html'">Teacher Remark</button>
               </div>
             </div>
           </div>
@@ -178,48 +176,26 @@
   </main>
 
   <script>
-// Toggle the main dropdown menus
-document.querySelectorAll('.dropdown-btn').forEach((button) => {
-  button.addEventListener('click', function () {
-    const dropdown = this.parentElement;
-    dropdown.classList.toggle('active');
-    
-    // Close other open dropdowns
-    document.querySelectorAll('.dropdown').forEach((otherDropdown) => {
-      if (otherDropdown !== dropdown) {
-        otherDropdown.classList.remove('active');
-      }
+    // JavaScript code defined in the original question
+    document.querySelectorAll('.dropdown-btn').forEach((button) => {
+      button.addEventListener('click', function () {
+        const dropdown = this.parentElement;
+        dropdown.classList.toggle('active');
+        document.querySelectorAll('.dropdown').forEach((otherDropdown) => {
+          if (otherDropdown !== dropdown) {
+            otherDropdown.classList.remove('active');
+          }
+        });
+      });
     });
-  });
-});
 
-// Toggle sub-dropdowns under each subject
-document.querySelectorAll('.subject-btn').forEach((button) => {
-  button.addEventListener('click', function () {
-    this.classList.toggle('active');
-    const subDropdown = this.nextElementSibling;
-    subDropdown.style.display = 
-      subDropdown.style.display === 'block' ? 'none' : 'block';
-  });
-});
-
-// Close dropdowns when clicking outside
-document.addEventListener('click', function(event) {
-  const dropdowns = document.querySelectorAll('.dropdown');
-  dropdowns.forEach((dropdown) => {
-    if (!dropdown.contains(event.target)) {
-      dropdown.classList.remove('active');
+    const name = localStorage.getItem("parentName");
+    if (name) {
+      document.getElementById("welcome").textContent = `Welcome, ${name}!`;
+    } else {
+      document.getElementById("welcome").textContent = "Welcome, Parent!";
     }
-  });
-});
-
-// Get the stored name from local storage
-const name = localStorage.getItem("parentName");
-if (name) {
-  document.getElementById("welcome").textContent = `Welcome, ${name}!`;
-} else {
-  document.getElementById("welcome").textContent = "Welcome, Parent!";
-}
   </script>
+
 </body>
 </html>
