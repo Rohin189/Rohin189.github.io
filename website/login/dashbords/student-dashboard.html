@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Student Dashboard</title>
-    <link rel="stylesheet" href="dashboard-styles.css" />
+    <link rel="stylesheet" href="dashboard-styles.css">
     <style>
 /* Dropdown Button Styling */
 .dropdown-btn {
@@ -57,8 +57,8 @@
 }
 
 .subject-btn:hover {
-  background-color:  #0056b3;
-  color:white;
+  background-color: #0056b3;
+  color: white;
   border-radius: 5px;
   font-weight: bolder;
 }
@@ -85,14 +85,41 @@
 }
 
 .sub-dropdown button:hover {
-  background-color:#FAF6E3;
+  background-color: #FAF6E3;
   color: #0056b3;
   border-radius: 4px;
-
   font-weight: bolder;
 }
 
+/* Option Card Styling */
+.options-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
 
+.option-card {
+  position: relative;
+  width: 200px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  transition: transform 0.3s ease;
+}
+
+.option-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.option-card img {
+  max-width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
     </style>
   </head>
 
@@ -106,52 +133,141 @@
         <h1 id="Hello">Welcome!</h1>
         <p>Select an action to continue:</p>
         <div class="options-container">
-          <a href="options/grades.html" class="option-card">
+          <div class="option-card">
             <img src="images/grades.png" alt="Grades" />
             <h3>View Grades</h3>
-          </a>
-          <a href="options/materials.html" class="option-card">
-            <img src="images/materials.png" alt="Materials" />
-            <h3>Access Study Materials</h3>
-          </a>
-          <a href="./teachas.html" class="option-card">
-            <img src="images/assignment.png" alt="Assignments" />
-            <h3>Submit Assignments</h3>
-          </a>
-          <div class="option-card" id="d">
-            <img src="images/Test.png" alt="Test">
-            <h3>Test</h3>
             <div class="dropdown">
-              <button class="dropdown-btn">Select Test</button>
+              <button class="dropdown-btn">Select Grades</button>
               <div class="dropdown-menu">
                 <div class="dropdown-item">
-                  <button class="subject-btn">Math Test</button>
+                  <button class="subject-btn">Physics Grades</button>
                   <div class="sub-dropdown">
-                    <button onclick="location.href='options/math-test1.html'">Test1</button>
-                    <button onclick="location.href='options/math-test2.html'">Test2</button>
-                    <button onclick="location.href='options/math-test3.html'">Test3</button>
+                    <button onclick="location.href='options/physics-semester-grades.html'">Semester Grades</button>
+                    <button onclick="location.href='options/physics-overall-grades.html'">Overall Grades</button>
+                    <button onclick="location.href='options/physics-detailed-grades.html'">Detailed Grades</button>
                   </div>
                 </div>
                 <div class="dropdown-item">
-                  <button class="subject-btn">Science Test</button>
+                  <button class="subject-btn">Chemistry Grades</button>
                   <div class="sub-dropdown">
-                    <button onclick="location.href='options/science-test1.html'">Test1</button>
-                    <button onclick="location.href='options/science-test2.html'">Test2</button>
-                    <button onclick="location.href='options/science-test3.html'">Test3</button>
+                    <button onclick="location.href='options/chemistry-semester-grades.html'">Semester Grades</button>
+                    <button onclick="location.href='options/chemistry-overall-grades.html'">Overall Grades</button>
+                    <button onclick="location.href='options/chemistry-detailed-grades.html'">Detailed Grades</button>
                   </div>
                 </div>
                 <div class="dropdown-item">
-                  <button class="subject-btn">English Test</button>
+                  <button class="subject-btn">Mathematics Grades</button>
                   <div class="sub-dropdown">
-                    <button onclick="location.href='options/english-test1.html'">Test1</button>
-                    <button onclick="location.href='options/english-test2.html'">Test2</button>
-                    <button onclick="location.href='options/english-test3.html'">Test3</button>
+                    <button onclick="location.href='options/math-semester-grades.html'">Semester Grades</button>
+                    <button onclick="location.href='options/math-overall-grades.html'">Overall Grades</button>
+                    <button onclick="location.href='options/math-detailed-grades.html'">Detailed Grades</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="option-card">
+            <img src="images/materials.png" alt="Materials" />
+            <h3>Access Study Materials</h3>
+            <div class="dropdown">
+              <button class="dropdown-btn">Select Materials</button>
+              <div class="dropdown-menu">
+                <div class="dropdown-item">
+                  <button class="subject-btn">Physics Materials</button>
+                  <div class="sub-dropdown">
+                    <button onclick="location.href='options/physics-textbooks.html'">Textbooks</button>
+                    <button onclick="location.href='options/physics-notes.html'">Lecture Notes</button>
+                    <button onclick="location.href='options/physics-practice.html'">Practice Materials</button>
+                  </div>
+                </div>
+                <div class="dropdown-item">
+                  <button class="subject-btn">Chemistry Materials</button>
+                  <div class="sub-dropdown">
+                    <button onclick="location.href='options/chemistry-textbooks.html'">Textbooks</button>
+                    <button onclick="location.href='options/chemistry-notes.html'">Lecture Notes</button>
+                    <button onclick="location.href='options/chemistry-practice.html'">Practice Materials</button>
+                  </div>
+                </div>
+                <div class="dropdown-item">
+                  <button class="subject-btn">Mathematics Materials</button>
+                  <div class="sub-dropdown">
+                    <button onclick="location.href='options/math-textbooks.html'">Textbooks</button>
+                    <button onclick="location.href='options/math-notes.html'">Lecture Notes</button>
+                    <button onclick="location.href='options/math-practice.html'">Practice Materials</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
           
+          <div class="option-card">
+            <img src="images/assignment.png" alt="Assignments" />
+            <h3>Submit Assignments</h3>
+            <div class="dropdown">
+              <button class="dropdown-btn">Select Assignments</button>
+              <div class="dropdown-menu">
+                <div class="dropdown-item">
+                  <button class="subject-btn">Physics Assignments</button>
+                  <div class="sub-dropdown">
+                    <button onclick="location.href='options/physics-assignment1.html'">Assignment 1</button>
+                    <button onclick="location.href='options/physics-assignment2.html'">Assignment 2</button>
+                    <button onclick="location.href='options/physics-assignment3.html'">Assignment 3</button>
+                  </div>
+                </div>
+                <div class="dropdown-item">
+                  <button class="subject-btn">Chemistry Assignments</button>
+                  <div class="sub-dropdown">
+                    <button onclick="location.href='options/chemistry-assignment1.html'">Assignment 1</button>
+                    <button onclick="location.href='options/chemistry-assignment2.html'">Assignment 2</button>
+                    <button onclick="location.href='options/chemistry-assignment3.html'">Assignment 3</button>
+                  </div>
+                </div>
+                <div class="dropdown-item">
+                  <button class="subject-btn">Mathematics Assignments</button>
+                  <div class="sub-dropdown">
+                    <button onclick="location.href='options/math-assignment1.html'">Assignment 1</button>
+                    <button onclick="location.href='options/math-assignment2.html'">Assignment 2</button>
+                    <button onclick="location.href='options/math-assignment3.html'">Assignment 3</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="option-card">
+            <img src="images/Test.png" alt="Test" />
+            <h3>Test</h3>
+            <div class="dropdown">
+              <button class="dropdown-btn">Select Test</button>
+              <div class="dropdown-menu">
+                <div class="dropdown-item">
+                  <button class="subject-btn">Physics Test</button>
+                  <div class="sub-dropdown">
+                    <button onclick="location.href='options/physics-test1.html'">Test 1</button>
+                    <button onclick="location.href='options/physics-test2.html'">Test 2</button>
+                    <button onclick="location.href='options/physics-test3.html'">Test 3</button>
+                  </div>
+                </div>
+                <div class="dropdown-item">
+                  <button class="subject-btn">Chemistry Test</button>
+                  <div class="sub-dropdown">
+                    <button onclick="location.href='options/chemistry-test1.html'">Test 1</button>
+                    <button onclick="location.href='options/chemistry-test2.html'">Test 2</button>
+                    <button onclick="location.href='options/chemistry-test3.html'">Test 3</button>
+                  </div>
+                </div>
+                <div class="dropdown-item">
+                  <button class="subject-btn">Mathematics Test</button>
+                  <div class="sub-dropdown">
+                    <button onclick="location.href='options/math-test1.html'">Test 1</button>
+                    <button onclick="location.href='options/math-test2.html'">Test 2</button>
+                    <button onclick="location.href='options/math-test3.html'">Test 3</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           
           <a href="options/psycomet.html" class="option-card">
             <img src="images/Test.png" alt="Psychometric Test" />
@@ -160,31 +276,50 @@
         </div>
       </section>
     </main>
+
     <script>
-// Toggle the main dropdown menu
-document.querySelector('.dropdown-btn').addEventListener('click', function () {
-  const dropdown = this.parentElement;
-  dropdown.classList.toggle('active');
+// Toggle the main dropdown menus
+document.querySelectorAll('.dropdown-btn').forEach((button) => {
+  button.addEventListener('click', function () {
+    const dropdown = this.parentElement;
+    dropdown.classList.toggle('active');
+    
+    // Close other open dropdowns
+    document.querySelectorAll('.dropdown').forEach((otherDropdown) => {
+      if (otherDropdown !== dropdown) {
+        otherDropdown.classList.remove('active');
+      }
+    });
+  });
 });
 
 // Toggle sub-dropdowns under each subject
 document.querySelectorAll('.subject-btn').forEach((button) => {
   button.addEventListener('click', function () {
+    this.classList.toggle('active');
     const subDropdown = this.nextElementSibling;
-    subDropdown.style.display =
+    subDropdown.style.display = 
       subDropdown.style.display === 'block' ? 'none' : 'block';
   });
 });
 
-    </script>
-    <script>
-      // Get the stored name from local storage
-      const name = localStorage.getItem("userName");
-      if (name) {
-        document.getElementById("Hello").textContent = `Hello, ${name}!`;
-      } else {
-        document.getElementById("greeting").textContent = "Hello, Guest!";
-      }
+// Close dropdowns when clicking outside
+document.addEventListener('click', function(event) {
+  const dropdowns = document.querySelectorAll('.dropdown');
+  dropdowns.forEach((dropdown) => {
+    if (!dropdown.contains(event.target)) {
+      dropdown.classList.remove('active');
+    }
+  });
+});
+
+// Get the stored name from local storage
+const name = localStorage.getItem("userName");
+if (name) {
+  document.getElementById("Hello").textContent = `Hello, ${name}!`;
+} else {
+  document.getElementById("Hello").textContent = "Hello, Guest!";
+}
     </script>
   </body>
 </html>

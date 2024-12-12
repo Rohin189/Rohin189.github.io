@@ -284,7 +284,7 @@ function renderChart(chartData) {
 
 // CSV download function (auto-triggered)
 // CSV download function (auto-triggered)
-function downloadCSV(results) {
+/*function downloadCSV(results) {
     // Format the categoryScores array as a string
     const categoryScoresString = results.categoryScores
         .map(category => `${category.category}:${category.score}%`)
@@ -307,7 +307,7 @@ function downloadCSV(results) {
     link.setAttribute('download', 'assessment_results.csv');
     document.body.appendChild(link);
     link.click(); // Auto-trigger the download
-}
+}*/
 
 
 // Add event listener to the submit button
