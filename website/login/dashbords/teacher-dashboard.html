@@ -5,15 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Teacher Dashboard</title>
     <link rel="stylesheet" href="dashboard-styles.css" />
+    <style>
+      body {
+        background: linear-gradient(to right, #f46b45, #eea849);
+          
+      }
+
+    </style>
   </head>
   <body>
     <header>
       <h1>Teacher Dashboard</h1>
     </header>
-
+    <h2 class="headi">Welcome</h2>
+    <h2 class="headi"></h2>
     <main>
       <section class="dashboard-options">
-        <h2 id="Hello">Welcome !!</h2>
+        
         <p>Select an action to continue:</p>
         <div class="options-container">
           <a href="#" class="option-card">
@@ -26,7 +34,7 @@
           </a>
           <a href="./reports.html" class="option-card">
             <img src="images/assignment.png" alt="Assignments" />
-            <h3>View Reports</h3>
+            <h3>Student Reports</h3>
           </a>
           <a href="./videos/teacher-dashboard-tutorial.mp4" class="option-card">
             <img src="images/resource.png" alt="Resources" />
@@ -43,9 +51,9 @@
     <script>
       const name = localStorage.getItem("userName");
       if (name) {
-        document.getElementById("Hello").textContent = `Hello, ${name}!`;
+        document.getElementById("Hello").textContent = ` ${name}!`;
       } else {
-        document.getElementById("Hello").textContent = "Hello, Guest!";
+        document.getElementById("Hello").textContent = "Student!";
       }
     </script>
   </body>
