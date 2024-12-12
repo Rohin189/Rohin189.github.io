@@ -13,33 +13,27 @@
 
   <main>
     <section class="dashboard-options">
-      <h2>Welcome, [Teacher Name]</h2>
+      <h2 id="Hello">Welcome !!</h2>
       <p>Select an action to continue:</p>
       <div class="options-container">
         <a href="#" class="option-card">
           <img src="images/attendance.png" alt="Attendance">
           <h3>Manage Attendance</h3>
         </a>
-        <a href="#" class="option-card">
+        <a href="./resource.html" class="option-card">
           <img src="images/attendance.png" alt="Attendance">
-          <h3>Manage Attendance</h3>
+          <h3>Manage Resources</h3>
         </a>  
-        <a href="./assignment.html" class="option-card">
+        <a href="./reports.html" class="option-card">
           <img src="images/assignment.png" alt="Assignments">
-          <h3>View Assignments</h3>
+          <h3>View Reports</h3>
+          
         </a>
-        <a href="#" class="option-card">
+        <a href="./videos/teacher-dashboard-tutorial.mp4" class="option-card">
           <img src="images/resource.png" alt="Resources">
-          <h3>Upload Resources</h3>
-        </a>
-        <a href="#" class="option-card">
-          <img src="images/reports.png" alt="Reports">
-          <h3>Generate Reports</h3>
-        </a>
-        <a href="options/training.html" class="option-card">
-          <img src="images/training.png" alt="training">
           <h3>Teacher Training</h3>
         </a>
+        
       </div>
     </section>
   </main>
@@ -47,5 +41,15 @@
   <footer>
     <p>&copy; 2024 Educare. Empowering Teachers Everywhere.</p>
   </footer>
+
+  <script>
+    const name = localStorage.getItem("userName");
+if (name) {
+  document.getElementById("Hello").textContent = `Hello, ${name}!`;
+} else {
+  document.getElementById("GUEST").textContent = "Hello, Guest!";
+}
+  </script>
+
 </body>
 </html>
